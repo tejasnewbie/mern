@@ -1,0 +1,69 @@
+# === Node.js ===
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+package-lock.json
+
+# === Vite ===
+dist/
+.vite/
+*.env
+.env.*
+.env.local
+.env.development
+.env.production
+.env.test
+
+# === React (Frontend) ===
+*.log
+*.lock
+*.bak
+.DS_Store
+Thumbs.db
+
+# === Express (Backend) ===
+/backend/node_modules/
+/backend/package-lock.json
+/backend/.env
+
+# === Firebase ===
+.firebase/
+.firebaserc
+firebase-debug.log
+firebase-debug.*
+firebase.json
+
+# === IDEs and Editors ===
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# === OS-specific ===
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# === Git ===
+*.orig
+
+# === Logs ===
+logs/
+*.log
+*.pid
+*.seed
+*.pid.lock
+
+# === Build and Cache ===
+.cache/
+tmp/
+temp/
+
+# === Coverage ===
+coverage/
+.nyc_output/
