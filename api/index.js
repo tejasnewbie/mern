@@ -15,10 +15,25 @@ mongoose
 
 const app = express();
 
-// Allow frontend domain
+// Allow multiple origins (production + local dev)
+const allowedOrigins = [
+  'https://dapper-torte-a30200.netlify.app',
+  'http://localhost:5173',
+  'http://localhost:3000'
+];
+
 app.use(cors({
-  origin: 'https://dapper-torte-a30200.netlify.app',
+  origin: function (origin, callback) {
+    // allow requests with no origin (like curl or mobile apps)
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  maxAge: 3600
 }));
 
 app.use(express.json());
