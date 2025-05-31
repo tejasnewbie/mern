@@ -17,7 +17,7 @@ const app = express();
 
 // Allow multiple origins (production + local dev)
 const allowedOrigins = [
-  'https://dapper-torte-a30200.netlify.app',
+  'http://studentabode.netlify.app',
   'http://localhost:5173',
   'http://localhost:3000'
 ];
