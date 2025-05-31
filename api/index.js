@@ -7,7 +7,7 @@ import userRouter from './routes/user.route.js';
 import authRouter from './routes/auth.route.js';
 import listingRouter from './routes/listing.route.js';
 
-// Connect to MongoDB (hardcoded URI)
+// Connect to MongoDB
 mongoose
   .connect('mongodb+srv://tj26595:GUjT4JI5jXwtrZkr@cluster0.qgmb6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
   .then(() => console.log('Connected to MongoDB!'))
@@ -15,16 +15,15 @@ mongoose
 
 const app = express();
 
-// Allow multiple origins (production + local dev)
+// ✅ Allow frontend origin for production and dev
 const allowedOrigins = [
-  'https://dapper-torte-a30200.netlify.app/',
-  'http://localhost:5173',
-  'http://localhost:3000'
+  'https://studentabode.netlify.app', // ✅ your deployed frontend
+  'http://localhost:5173',            // ✅ Vite dev server
+  'http://localhost:3000'             // ✅ Create React App dev server
 ];
 
 app.use(cors({
   origin: function (origin, callback) {
-    // allow requests with no origin (like curl or mobile apps)
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
@@ -39,7 +38,7 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 
-// API routes
+// Routes
 app.use('/api/user', userRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/listing', listingRouter);
@@ -55,7 +54,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Start server (Render uses dynamic port)
+// Start the server (Render uses a dynamic port)
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}!`);
