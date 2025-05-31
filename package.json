@@ -2,6 +2,7 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
     "create-vite": "^5.5.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
@@ -16,7 +17,7 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon api/index.js",
-    "start": "node api.index.js"
+    "start": "node api/index.js"
   },
   "keywords": [],
   "author": "",
